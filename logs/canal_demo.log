@@ -1,0 +1,129 @@
+2018-04-25 09:01:49,387 [pool-1-thread-2] ERROR [com.goldsign.canal.base.AbstractCanalConsumer] - [] startClient error!
+com.alibaba.otter.canal.protocol.exception.CanalClientException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.ack(SimpleCanalConnector.java:339)
+	at com.goldsign.canal.consumer.CanalConsumer$1.run(CanalConsumer.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(Unknown Source)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.write(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.write(Unknown Source)
+	at java.nio.channels.Channels.writeFullyImpl(Unknown Source)
+	at java.nio.channels.Channels.writeFully(Unknown Source)
+	at java.nio.channels.Channels.access$000(Unknown Source)
+	at java.nio.channels.Channels$1.write(Unknown Source)
+	at java.nio.channels.Channels$WritableByteChannelImpl.write(Unknown Source)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.writeWithHeader(SimpleCanalConnector.java:382)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.writeWithHeader(SimpleCanalConnector.java:369)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.ack(SimpleCanalConnector.java:333)
+	... 4 more
+2018-04-25 09:02:44,485 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:02:44,486 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...
+2018-04-25 09:02:50,825 [main] INFO  [com.goldsign.canal.SpringMain] - [] canal consumer starting...
+2018-04-25 09:02:52,819 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - [] {dataSource-1} inited
+2018-04-25 09:02:53,354 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor...
+2018-04-25 09:02:53,360 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor complete.
+2018-04-25 09:02:53,390 [main] INFO  [com.goldsign.canal.utils.Global] - [] canal consumer start listening[my-canal#127.0.0.1:2181]
+2018-04-25 09:02:53,619 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] convert to Object:Student
+2018-04-25 09:02:53,622 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] Column[Type=varchar(20),Name=id,Value=001,isKey=true]
+2018-04-25 09:02:53,635 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] Column[Type=varchar(100),Name=name,Value=张三,isKey=false]
+2018-04-25 09:02:53,636 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] Column[Type=int(8),Name=count,Value=999,isKey=false]
+2018-04-25 09:02:53,637 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] Student [id=001, name=张三, age=null, count=999]
+2018-04-25 09:02:53,639 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026#5469] convert data before:Student [id=001, name=张三, age=null, count=999]
+2018-04-25 09:02:53,639 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026#5469] convert data after:Student [id=001, name=张三, age=null, count=999]
+2018-04-25 09:02:53,641 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5469] UPDATE
+2018-04-25 09:02:53,700 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5469] ==>  Preparing: UPDATE student SET name = ?, count = ?, tmp1=?, tmp2=? WHERE id = ? 
+2018-04-25 09:02:54,128 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5469] ==> Parameters: 张三(String), 999(Integer), tmp1(String), test1524618173639(String), 001(String)
+2018-04-25 09:02:54,177 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5469] <==    Updates: 1
+2018-04-25 09:02:54,178 [pool-1-thread-1] DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - [mysql-bin.000026#5469] {conn-10010, pstmt-20000} enter cache
+2018-04-25 09:04:24,925 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:04:24,926 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...
+2018-04-25 09:05:43,965 [main] INFO  [com.goldsign.canal.SpringMain] - [] canal consumer starting...
+2018-04-25 09:05:45,940 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - [] {dataSource-1} inited
+2018-04-25 09:05:46,457 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor...
+2018-04-25 09:05:46,462 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor complete.
+2018-04-25 09:05:46,488 [main] INFO  [com.goldsign.canal.utils.Global] - [] canal consumer start listening[my-canal]
+2018-04-25 09:05:53,719 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] convert to Object:Student
+2018-04-25 09:05:53,720 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] Column[Type=varchar(20),Name=id,Value=001,isKey=true]
+2018-04-25 09:05:53,726 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] Column[Type=varchar(100),Name=name,Value=张三,isKey=false]
+2018-04-25 09:05:53,726 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] Column[Type=int(8),Name=count,Value=1,isKey=false]
+2018-04-25 09:05:53,727 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] Student [id=001, name=张三, age=null, count=1]
+2018-04-25 09:05:53,728 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026#5656] convert data before:Student [id=001, name=张三, age=null, count=1]
+2018-04-25 09:05:53,728 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026#5656] convert data after:Student [id=001, name=张三, age=null, count=1]
+2018-04-25 09:05:53,728 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026#5656] UPDATE
+2018-04-25 09:05:53,778 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5656] ==>  Preparing: UPDATE student SET name = ?, count = ?, tmp1=?, tmp2=? WHERE id = ? 
+2018-04-25 09:05:54,096 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5656] ==> Parameters: 张三(String), 1(Integer), tmp1(String), test1524618353728(String), 001(String)
+2018-04-25 09:05:54,135 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026#5656] <==    Updates: 1
+2018-04-25 09:05:54,136 [pool-1-thread-1] DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - [mysql-bin.000026#5656] {conn-10010, pstmt-20000} enter cache
+2018-04-25 09:06:49,545 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:06:49,546 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...
+2018-04-25 09:29:27,907 [main] INFO  [com.goldsign.canal.SpringMain] - [] canal consumer starting...
+2018-04-25 09:29:30,228 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - [] {dataSource-1} inited
+2018-04-25 09:29:30,784 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor...
+2018-04-25 09:29:30,791 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor complete.
+2018-04-25 09:29:30,827 [main] INFO  [com.goldsign.canal.utils.Global] - [] canal consumer start listening[canal.jxky]
+2018-04-25 09:30:26,823 [pool-1-thread-2] ERROR [com.goldsign.canal.base.AbstractCanalConsumer] - [] startClient error!
+com.alibaba.otter.canal.protocol.exception.CanalClientException: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.ack(SimpleCanalConnector.java:339)
+	at com.goldsign.canal.consumer.CanalConsumer$1.run(CanalConsumer.java:70)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at sun.nio.ch.SocketDispatcher.write(Unknown Source)
+	at sun.nio.ch.IOUtil.writeFromNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.write(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.write(Unknown Source)
+	at java.nio.channels.Channels.writeFullyImpl(Unknown Source)
+	at java.nio.channels.Channels.writeFully(Unknown Source)
+	at java.nio.channels.Channels.access$000(Unknown Source)
+	at java.nio.channels.Channels$1.write(Unknown Source)
+	at java.nio.channels.Channels$WritableByteChannelImpl.write(Unknown Source)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.writeWithHeader(SimpleCanalConnector.java:381)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.writeWithHeader(SimpleCanalConnector.java:369)
+	at com.alibaba.otter.canal.client.impl.SimpleCanalConnector.ack(SimpleCanalConnector.java:333)
+	... 4 more
+2018-04-25 09:40:10,619 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:40:10,619 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...
+2018-04-25 09:40:18,013 [main] INFO  [com.goldsign.canal.SpringMain] - [] canal consumer starting...
+2018-04-25 09:40:20,327 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - [] {dataSource-1} inited
+2018-04-25 09:40:20,924 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor...
+2018-04-25 09:40:20,932 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor complete.
+2018-04-25 09:40:20,967 [main] INFO  [com.goldsign.canal.utils.Global] - [] canal consumer start listening[canal.jxky]
+2018-04-25 09:40:21,281 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] convert to Object:Student
+2018-04-25 09:40:21,283 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] Column[Type=varchar(20),Name=id,Value=001,isKey=true]
+2018-04-25 09:40:21,296 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] Column[Type=varchar(100),Name=name,Value=张三,isKey=false]
+2018-04-25 09:40:21,296 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] Column[Type=int(8),Name=count,Value=444,isKey=false]
+2018-04-25 09:40:21,298 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] Student [id=001, name=张三, age=null, count=444]
+2018-04-25 09:40:21,299 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026éÕF#6030] convert data before:Student [id=001, name=张三, age=null, count=444]
+2018-04-25 09:40:21,299 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026éÕF#6030] convert data after:Student [id=001, name=张三, age=null, count=444]
+2018-04-25 09:40:21,316 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026éÕF#6030] UPDATE
+2018-04-25 09:40:21,484 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026éÕF#6030] ==>  Preparing: UPDATE student SET name = ?, count = ?, tmp1=?, tmp2=? WHERE id = ? 
+2018-04-25 09:40:21,786 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026éÕF#6030] ==> Parameters: 张三(String), 444(Integer), tmp1(String), test1524620421299(String), 001(String)
+2018-04-25 09:40:21,931 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026éÕF#6030] <==    Updates: 1
+2018-04-25 09:40:21,932 [pool-1-thread-1] DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - [mysql-bin.000026éÕF#6030] {conn-10010, pstmt-20000} enter cache
+2018-04-25 09:41:11,910 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:41:11,910 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...
+2018-04-25 09:52:17,913 [main] INFO  [com.goldsign.canal.SpringMain] - [] canal consumer starting...
+2018-04-25 09:52:19,767 [main] INFO  [com.alibaba.druid.pool.DruidDataSource] - [] {dataSource-1} inited
+2018-04-25 09:52:20,191 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor...
+2018-04-25 09:52:20,198 [main] INFO  [com.goldsign.canal.utils.Global] - [] init CanalProcessor complete.
+2018-04-25 09:52:20,230 [main] INFO  [com.goldsign.canal.utils.Global] - [] canal consumer start listening[canal.instance.jxky]
+2018-04-25 09:52:20,517 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] convert to Object:Student
+2018-04-25 09:52:20,524 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] Column[Type=varchar(20),Name=id,Value=001,isKey=true]
+2018-04-25 09:52:20,533 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] Column[Type=varchar(100),Name=name,Value=张三,isKey=false]
+2018-04-25 09:52:20,534 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] Column[Type=int(8),Name=count,Value=123,isKey=false]
+2018-04-25 09:52:20,538 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] Student [id=001, name=张三, age=null, count=123]
+2018-04-25 09:52:20,541 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026¿Ñ¨#6217] convert data before:Student [id=001, name=张三, age=null, count=123]
+2018-04-25 09:52:20,541 [pool-1-thread-1] DEBUG [com.goldsign.canal.utils.Global] - [mysql-bin.000026¿Ñ¨#6217] convert data after:Student [id=001, name=张三, age=null, count=123]
+2018-04-25 09:52:20,544 [pool-1-thread-1] DEBUG [com.goldsign.canal.processor.BaseProcessor] - [mysql-bin.000026¿Ñ¨#6217] UPDATE
+2018-04-25 09:52:20,613 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026¿Ñ¨#6217] ==>  Preparing: UPDATE student SET name = ?, count = ?, tmp1=?, tmp2=? WHERE id = ? 
+2018-04-25 09:52:20,890 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026¿Ñ¨#6217] ==> Parameters: 张三(String), 123(Integer), tmp1(String), test1524621140541(String), 001(String)
+2018-04-25 09:52:20,968 [pool-1-thread-1] DEBUG [com.goldsign.canal.app.jxky.dao.StudentDao.update] - [mysql-bin.000026¿Ñ¨#6217] <==    Updates: 1
+2018-04-25 09:52:20,968 [pool-1-thread-1] DEBUG [com.alibaba.druid.pool.PreparedStatementPool] - [mysql-bin.000026¿Ñ¨#6217] {conn-10010, pstmt-20000} enter cache
+2018-04-25 09:53:28,632 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] call hook.
+2018-04-25 09:53:28,633 [Thread-2] INFO  [com.goldsign.canal.base.AbstractCanalConsumer] - [] cunsumer unsubscribe and disconnect...

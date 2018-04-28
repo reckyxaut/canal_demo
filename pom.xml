@@ -1,0 +1,205 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.goldsign</groupId>
+  <artifactId>canal.app</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <name>canal.app</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+ 	<exec.mainClass>com.goldsign.canal.SpringMain</exec.mainClass>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <mybatis.version>3.2.8</mybatis.version>
+    <mybatis-spring.version>1.2.2</mybatis-spring.version>
+	<druid.version>1.1.5</druid.version>
+	<commons-lang3.version>3.3.2</commons-lang3.version>
+	<aspectj.version>1.8.9</aspectj.version>
+	<mysql.driver.version>5.1.40</mysql.driver.version>
+	<spring.version>4.0.8.RELEASE</spring.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+    
+    
+	<dependency>
+	  <groupId>com.alibaba.otter</groupId>
+	  <artifactId>canal.client</artifactId>
+	  <version>1.0.25</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.7.21</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${mybatis.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${mybatis-spring.version}</version>
+	</dependency>
+	
+
+	
+	<dependency>
+	     <groupId>com.alibaba</groupId>
+	     <artifactId>druid</artifactId>
+	     <version>${druid.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql.driver.version}</version>
+	</dependency>
+
+<!-- spring -->
+	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<!-- 
+			<version>3.2.9.RELEASE</version>
+			 -->
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+	</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion> 
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+			
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+	<dependency>
+	  <groupId>org.aspectj</groupId>
+	  <artifactId>aspectjweaver</artifactId>
+	  <version>${aspectj.version}</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>${commons-lang3.version}</version>
+	</dependency>
+			
+	</dependencies>
+	
+	
+	<build>
+	<plugins>
+		<plugin>  
+            <groupId>org.apache.maven.plugins</groupId>  
+            <artifactId>maven-compiler-plugin</artifactId>  
+            <configuration>  
+                <source>${java.version}</source>  
+                <target>${java.version}</target>  
+            </configuration>  
+    	 </plugin>
+    	 
+    	 
+    	 <!-- shade 打包插件解决spring依赖未引入的问题 -->
+         <plugin>  
+            	<groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-shade-plugin</artifactId>  
+                <version>3.1.0</version>
+                <executions>  
+                <execution>  
+                    <phase>package</phase>  
+                    <goals>  
+                        <goal>shade</goal>  
+                    </goals>  
+                    <configuration>
+                    	<encoding>${project.build.sourceEncoding}</encoding> 
+ 	                    <filters>  
+	                            <filter>  
+	                            	<artifact>*:*</artifact>
+	                                <excludes>  
+	                                    <exclude>META-INF/*.SF</exclude>  
+	                                    <exclude>META-INF/*.DSA</exclude>  
+	                                    <exclude>META-INF/*.RSA</exclude>  
+	                                    <!--  -->
+	                                    <exclude>*.properties</exclude>  
+	                                    <exclude>*.sh</exclude> 
+	                                    <exclude>*.bat</exclude> 
+	                                    <exclude>*biz-config.xml</exclude>  
+	                                </excludes>  
+	                            </filter>  
+	                    </filters>
+                        <transformers>  
+                            <transformer  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">  
+                                <mainClass>${exec.mainClass}</mainClass>  
+                            </transformer>  
+                            <transformer  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">  
+                                <resource>META-INF/spring.handlers</resource>  
+                            </transformer>  
+                            <transformer  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">  
+                                <resource>META-INF/spring.schemas</resource>  
+                            </transformer>  
+                        </transformers>  
+                    </configuration>  
+                </execution>  
+            </executions>  
+            </plugin>
+    	 
+	</plugins>
+	</build>
+	  
+</project>
