@@ -1,1 +1,0 @@
-nohup sh runServer.sh &
